@@ -12,7 +12,7 @@ const validate = (values) => {
     return errors;
 }
 
-const EmpleadosForm = ({ onSubmit, initialValues = {nombre: '', role: ''}}) => {
+const EmpleadosForm = ({ onSubmit, initialValues = {nombre: '', role: ''}, editMode = false}) => {
 
     const { values, errors, handleChange, handleSubmit } = useForm(initialValues, validate);
 
@@ -42,7 +42,7 @@ const EmpleadosForm = ({ onSubmit, initialValues = {nombre: '', role: ''}}) => {
                 />
                 {errors.rol && <p className="error">{errors.rol}</p>}
             </div>
-            <button type="submit">Crear</button>
+            <button type="submit">{editMode ? 'Actualizar' : 'Crear'}</button>
         </form>
     )
 }
