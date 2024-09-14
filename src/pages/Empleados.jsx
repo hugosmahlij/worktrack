@@ -38,6 +38,17 @@ function Empleados () {
         }
     }
 
+    //Funcion para eliminar un empleado
+    const eliminarEmpleado = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3001/empleados/${id}`)
+            setEmpleados(empleados.filter(empleado => empleado.id !== id))
+        } catch (err) {
+            console.error('Error al eliminar el empleado', err.response || err.message);
+            setError('Error al eliminar el empleado');
+        }
+    }
+
     // Obtener empleados al montar el componente
     useEffect(() => {
         fetchEmpleados()
@@ -54,6 +65,7 @@ function Empleados () {
                 {empleados.map((empleado) => (
                     <li key={empleado.id}>
                         {empleado.name} - {empleado.role}
+                        <button onClick={() => eliminarEmpleado(empleado.id)}>Eliminar</button>
                     </li>
                 ))}
             </ul>
