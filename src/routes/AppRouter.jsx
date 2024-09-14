@@ -4,6 +4,7 @@ import PrivateLayout from '../layouts/PrivateLayout';
 import LoginPage from '../pages/Login';
 import HomePage from '../pages/Home';
 import EmpleadosPage from '../pages/Empleados';
+import PrivateRoute from "./PrivateRoute";
 
 function AppRouter () {
     return (
@@ -12,7 +13,7 @@ function AppRouter () {
                 <Route path="/login" element={<PublicLayout />}>
                     <Route index element={<LoginPage />} />
                 </Route>
-                <Route path="/" element={<PrivateLayout />}>
+                <Route path="/" element={<PrivateRoute><PrivateLayout /></PrivateRoute>}>
                     <Route index element={<HomePage />} />
                     <Route path="empleados" element={<EmpleadosPage />} />
                 </Route>
