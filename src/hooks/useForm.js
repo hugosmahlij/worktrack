@@ -18,7 +18,7 @@ function useForm(initialValues, validate) {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      callback();
+      callback(values);
     }
   };
 
