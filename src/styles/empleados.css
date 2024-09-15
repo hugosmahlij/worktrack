@@ -1,0 +1,110 @@
+/* empleados.css */
+
+/* Estilo de la lista de empleados */
+.empleados-list {
+    display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se ajusten a la línea siguiente si no caben en una sola línea */
+  gap: 15px; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  padding: 20px;
+  }
+  
+  /* Estilo de cada card de empleado */
+  .empleado-card {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 1px;
+    padding: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    width: 200px; /* Ancho fijo de las tarjetas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacio entre el nombre y el rol */
+  }
+  
+  /* Botones de editar y eliminar */
+  .button-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button-edit {
+    background-color: #28a745;
+  }
+  
+  .button-delete {
+    background-color: #dc3545;
+  }
+  
+  .button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Estilo del formulario */
+  .empleados-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde sutil alrededor del formulario */
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Fondo ligero para el formulario */
+  }
+
+  .empleados-form {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .empleados-form .error {
+    color: #dc3545;
+    font-size: 0.875em;
+  }
+  
+  .empleados-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .empleados-form button:hover {
+    opacity: 0.8;
+  }
+  
+  .empleados-form .button-cancel {
+    background-color: #6c757d;
+  }
+  
+  /* Estilo del botón "Agregar nuevo empleado" */
+.button-add {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 20px auto; /* Centra el botón horizontalmente */
+  }
+  
+  .button-add:hover {
+    opacity: 0.8;
+  }

@@ -17,9 +17,9 @@ const EmpleadosForm = ({ onSubmit, initialValues = {nombre: '', role: ''}, editM
     const { values, errors, handleChange, handleSubmit } = useForm(initialValues, validate);
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="empleados-form">
             <div>
-                <label htmlFor="nombre">Nombre</label>
+                <label htmlFor="nombre">Nombre: </label>
                 <input
                     type="text"
                     id="nombre"
@@ -31,7 +31,7 @@ const EmpleadosForm = ({ onSubmit, initialValues = {nombre: '', role: ''}, editM
                 {errors.nombre && <p className="error">{errors.nombre}</p>}
             </div>
             <div>
-                <label htmlFor="rol">Rol</label>
+                <label htmlFor="rol">Rol: </label>
                 <input
                     type="text"
                     id="rol"
