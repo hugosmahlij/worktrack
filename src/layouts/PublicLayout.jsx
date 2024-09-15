@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import '../styles/layout.css'
 
 function PrivateLayout () {
     return (
-        <div>
+        <div className="layout-container">
             <Navbar isPrivate={false} />
-            <main>
+            <main className="layout-content">
                 <Outlet />
             </main>
             <Footer isPrivate={false} />

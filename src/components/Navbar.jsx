@@ -1,17 +1,28 @@
 import { Link } from 'react-router-dom';
+import '../styles/navbar.css';
+import AuthContext from '../context/AuthContext';
+import { useContext } from 'react';
 
 function Navbar ({ isPrivate }) {
+
+    const {logout} = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logout();
+        window.location.href = '/login';
+    }
+
     return (
-        <nav>
-            <ul>
+        <nav className='navbar'>
+            <ul className='navbar-list'>
                 {isPrivate ? (
                     <>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/empleados">Empleados</Link></li>
-                        <li><Link to="/logout">Logout</Link></li>
+                        <li className='navbar-item'><Link to="/">Home</Link></li>
+                        <li className='navbar-item'><Link to="/empleados">Empleados</Link></li>
+                        <li className='navbar-item'><a href='/login' onClick={handleLogout}>Logout</a></li>
                     </>
                 ) : (
-                    <li><Link to="/login">Login</Link></li>
+                    <li className='navbar-item'><Link to="/login">Login</Link></li>
                 )}
             </ul>
         </nav>

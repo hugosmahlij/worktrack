@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import EmpleadosForm from "../components/EmpleadosForm";
+import '../styles/empleados.css'
 
 
 function Empleados () {
@@ -11,6 +12,7 @@ function Empleados () {
     const [formValues, setFormValues] = useState({ nombre: '', rol: '' });
     const [editMode, setEditMode] = useState(false);
     const [editingId, setEditingId] = useState(null);
+    const [showForm, setShowForm] = useState(false)
 
     // Funcion para obtener los empleados desde el servidor
     const fetchEmpleados = async () => {
@@ -33,6 +35,7 @@ function Empleados () {
                 role: values.rol
             });
             setEmpleados([...empleados, response.data]); // aqui se añade un nuevo empleado a la lista
+            setShowForm(false);
         } catch (err) {
             console.error('Error al agregar el empleado', err.response || err.message);
             setError('Error al agregar el empleado')
@@ -47,6 +50,7 @@ function Empleados () {
             setEditMode(false);
             setEditingId(null);
             setFormValues({ nombre: '', rol: '' });
+            setShowForm(false)
         } catch (err) {
             console.error('Error al actualizar el empleado', err.response || err.message);
             setError('Error al actualizar');
@@ -58,6 +62,7 @@ function Empleados () {
         setFormValues({ nombre: empleado.name, rol: empleado.role });
         setEditMode(true);
         setEditingId(empleado.id);
+        setShowForm(true)
     }
 
     // Funcion para cancelar la edicion
@@ -65,6 +70,7 @@ function Empleados () {
         setEditMode(false);
         setEditingId(null);
         setFormValues({ nombre: '', rol: '' });
+        setShowForm(false)
     }
 
     //Funcion para eliminar un empleado
@@ -88,26 +94,38 @@ function Empleados () {
 
     return (
         <div>
-            <h2>Lista de Empleados</h2>
+            <h2 className="page-title">Lista de Empleados</h2>
+
             {/* Aqui se renderizaran los empleados*/}
-            <ul>
+            <div className="empleados-list">
                 {empleados.map((empleado) => (
-                    <li key={empleado.id}>
-                        {empleado.name} - {empleado.role}
-                        <button onClick={() => handleEdit(empleado)}>Editar</button>
-                        <button onClick={() => eliminarEmpleado(empleado.id)}>Eliminar</button>
-                    </li>
+                    <div className="empleado-card" key={empleado.id}>
+                        <div>{empleado.name}</div>
+                        <div>{empleado.role}</div>
+                        <div className="button-container">
+                            <button className="button button-edit" onClick={() => handleEdit(empleado)}>Editar</button>
+                            <button className="button button-delete" onClick={() => eliminarEmpleado(empleado.id)}>Eliminar</button>
+                        </div>
+                    </div>
                 ))}
-            </ul>
+            </div>
+
+            {/* Boton para mostrar el formulario */}
+            <button className="button-add" onClick={() => { setShowForm(!showForm); setEditMode(false); }}>Agregar empleado</button>
 
             {/* Formulario para agregar o editar un empleado */}
-            <h3>{editMode ? 'Editar empleado' : 'Agregar nuevo empleado'}</h3>
-            <EmpleadosForm
-                onSubmit={editMode ? editarEmpleado : agregarEmpleado}
-                editMode={editMode}
-            />
-            {editMode && <button onClick={handleCancelEdit}>Cancelar</button>}
-        </div>
+            {showForm && (
+                <div className="empleados-form-container">
+                    <h3>{editMode ? 'Editar empleado' : 'Agregar nuevo empleado'}</h3>
+                    <EmpleadosForm
+                        onSubmit={editMode ? editarEmpleado : agregarEmpleado}
+                        initialValues={formValues}
+                        editMode={editMode}
+                    />
+                    {editMode && <button className="button button-cancel" onClick={handleCancelEdit}>Cancelar</button>}
+                </div>
+            )}
+        </div >
     )
 }
 

@@ -1,7 +1,9 @@
+import '../styles/footer.css'
+
 function Footer({isPrivate}) {
     return (
-        <footer>
-            <p>{isPrivate ? 'Private Footer' : 'Public Footer'}</p>
+        <footer className="footer">
+            <p className="footer-text">{isPrivate ? 'Private Footer' : 'Public Footer'}</p>
         </footer>
     )
 }

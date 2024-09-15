@@ -1,7 +1,7 @@
 function Home() {
     return(
         <div>
-            <h2>Pagina Home</h2>
+            <h2 className="page-title">Pagina Home</h2>
             <p>Bienvenido a la pagina de inicio.</p>
         </div>
     )
