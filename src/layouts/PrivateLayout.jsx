@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import '../styles/layout.css'
 
-function PublicLayout () {
+function PrivateLayout () {
     return (
         <div className="layout-container">
             <Navbar isPrivate={true} />
@@ -15,4 +15,4 @@ function PublicLayout () {
     )
 }
 
-export default PublicLayout;
+export default PrivateLayout;
