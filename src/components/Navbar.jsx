@@ -22,7 +22,7 @@ function Navbar ({ isPrivate }) {
                         <li className='navbar-item'><a href='/login' onClick={handleLogout}>Logout</a></li>
                     </>
                 ) : (
-                    <li className='navbar-item'><Link to="/login">Login</Link></li>
+                    <li className='navbar-item'><Link to="/signup">Sign Up</Link></li>
                 )}
             </ul>
         </nav>
