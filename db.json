@@ -1,0 +1,51 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123"
+    },
+    {
+      "id": "2",
+      "username": "mario",
+      "password": "baracus"
+    }
+  ],
+  "empleados": [
+    {
+      "id": "1",
+      "name": "Juan Perez",
+      "role": "Developer"
+    },
+    {
+      "id": "2",
+      "name": "Maria Gomez",
+      "role": "Manager"
+    },
+    {
+      "id": "bd01",
+      "name": "Rocky Balboa",
+      "role": "Boxer"
+    },
+    {
+      "id": "f3f5",
+      "name": "Leonardo Duca",
+      "role": "Crack"
+    },
+    {
+      "id": "a425",
+      "name": "Cristian Tiri",
+      "role": "Master"
+    },
+    {
+      "id": "93df",
+      "name": "Gabriel Silva",
+      "role": "Fenomeno"
+    },
+    {
+      "id": "3ef0",
+      "name": "Agustin Peluso",
+      "role": "Genio"
+    }
+  ]
+}
