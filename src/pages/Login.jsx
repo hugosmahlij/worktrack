@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
-import { useNavigate } from "react-router";
 import useForm from "../hooks/useForm";
 import '../styles/login.css'
 
 function Login () {
 
     const { login } = useContext(AuthContext);
-    const navigate = useNavigate();
 
     const validate = (values) => {
         let errors = {};
@@ -20,11 +18,11 @@ function Login () {
         validate //funcion de validacion
     )
 
-    const onSubmit = () => {
-        if (values.username === 'admin' && values.password === 'admin') {
-            login();
-            navigate('/');
-        } else {
+    const onSubmit = async () => {
+        try {
+            // Llamo a la funcion login del contexto
+            await login(values.username, values.password);
+        } catch (error) {
             alert('Credenciales incorrectas');
         }
     }
@@ -40,7 +38,7 @@ function Login () {
                 </div>
                 <div className="form-group">
                     <label>Password:</label>
-                    <input type="text" name="password" value={values.password} onChange={handleChange} />
+                    <input type="password" name="password" value={values.password} onChange={handleChange} />
                     {errors.password && <p className="error-message">{errors.password}</p>}
                 </div>
                 <button type="submit" className="login-button">Login</button>
