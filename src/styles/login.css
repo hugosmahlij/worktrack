@@ -60,3 +60,25 @@ input {
   font-size: 0.875em;
   margin: 0;
 }
+
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.password-container { 
+  flex: 1;
+}
+
+.password-toggle-button {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 0.9em;
+}
+
+.password-toggle-button:hover {
+  text-decoration: underline;
+}
