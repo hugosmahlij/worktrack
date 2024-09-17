@@ -10,10 +10,10 @@ import SignUpPage from "../pages/SignUp";
 function AppRouter () {
     return (
         <Routes>
-            <Route path="/login" element={<PublicLayout />}>
+            <Route path="/login" element={<PublicLayout isSignUpPage={false}/>}>
                 <Route index element={<LoginPage />} />
             </Route>
-            <Route path="/signup" element={<PublicLayout />}>
+            <Route path="/signup" element={<PublicLayout isSignUpPage={true} />}>
                 <Route index element={<SignUpPage />} />
             </Route>
 

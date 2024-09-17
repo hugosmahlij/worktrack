@@ -3,10 +3,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import '../styles/layout.css'
 
-function PublicLayout () {
+function PublicLayout ({ isSignUpPage }) {
     return (
         <div className="layout-container">
-            <Navbar isPrivate={false} />
+            <Navbar isSignUpPage={isSignUpPage} isPrivate={false} />
             <main className="layout-content">
                 <Outlet />
             </main>
